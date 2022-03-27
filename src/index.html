@@ -1,0 +1,130 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Аппроксимация функций</title>
+    <script src="data-scripts/input-data.js"></script>
+    <script src="data-scripts/Point.js"></script>
+    <script src="matrix-scripts/gauss-method.js"></script>
+    <script src="approximator-functions/CONSTANTS.js"></script>
+
+    <script src="approximator-functions/linear.js"></script>
+    <script src="approximator-functions/quadratic.js"></script>
+    <script src="approximator-functions/third.js"></script>
+    <script src="approximator-functions/exponent.js"></script>
+    <script src="approximator-functions/log.js"></script>
+    <script src="approximator-functions/pow.js"></script>
+
+    <script src="draw-graphics/draw-svg-input-points.js"></script>
+    <script src="matrix-scripts/comput-min-max-points.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body style="
+            background-image: url('https://cdn.pixabay.com/photo/2018/06/24/08/01/dark-background-3494082_960_720.jpg');
+            white-space: pre-line;
+            max-width: 1400px"
+      onload="svgInit()"
+>
+
+<h1 style="color: chocolate">Введите начальные точки!(до 11 штук)</h1>
+<table>
+    <tr>
+        <td><b style="color: wheat">X</b></td>
+        <td><b style="color: wheat">Y</b></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="2.0"></td>
+        <td><input name="Y_input" type="text" value="0.3158"></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="1.8"></td>
+        <td><input name="Y_input" type="text" value="0.4001"></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="1.6"></td>
+        <td><input name="Y_input" type="text" value="0.5024"></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="1.4"></td>
+        <td><input name="Y_input" type="text" value="0.6139"></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="1.2"></td>
+        <td><input name="Y_input" type="text" value="0.7096"></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="1.0"></td>
+        <td><input name="Y_input" type="text" value="0.75"></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="0.8"></td>
+        <td><input name="Y_input" type="text" value="0.7039"></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="0.6"></td>
+        <td><input name="Y_input" type="text" value="0.5752"></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="0.4"></td>
+        <td><input name="Y_input" type="text" value="0.3966"></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="0.2"></td>
+        <td><input name="Y_input" type="text" value="0.1999"></td>
+    </tr>
+    <tr>
+        <td><input name="X_input" type="text" value="3.0"></td>
+        <td><input name="Y_input" type="text" value="3.0"></td>
+    </tr>
+</table>
+
+<button onclick="computAll()">НАЧАТЬ АППРОКСИМИРОВАТЬ</button>
+
+<h2 style="color: chocolate; left: 40%">Вы ввели:</h2>
+<output id="data-inputting" style="color: #e00ed5; left: 40%"></output>
+<h2 style="color: chocolate; left: 40%">КОНСТАНТЫ</h2>
+<output id="constants" style="color: #e10bd7; left: 40%"></output>
+
+<table>
+    <tr>
+        <td>
+            <h2 style="color: chocolate; left: 40%">Линейная аппроксимация</h2>
+            <output id="linear-out" style="color: #e10bd7; left: 40%"></output>
+            <div id="svg-container-linear">
+            </div>
+        </td>
+        <td>
+            <h2 style="color: chocolate; left: 40%">Квадратичная аппроксимация</h2>
+            <output id="quadratic-out" style="color: #e10bd7; left: 40%"></output>
+            <div id="svg-container-quadratic">
+            </div>
+        </td>
+        <td>
+            <h2 style="color: chocolate; left: 40%">Аппроксимация третьей степени</h2>
+            <output id="third-out" style="color: #e10bd7; left: 40%"></output>
+            <div id="svg-container-third">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h2 style="color: chocolate; left: 40%">Экспоненциальная аппроксимация</h2>
+            <output id="exponent-out" style="color: #e10bd7; left: 40%"></output>
+            <div id="svg-container-exponent">
+            </div>
+        </td>
+        <td>
+            <h2 style="color: chocolate; left: 40%">Логарифмическая аппроксимация</h2>
+            <output id="log-out" style="color: #e10bd7; left: 40%"></output>
+            <div id="svg-container-log">
+            </div>
+        </td>
+        <td>
+            <h2 style="color: chocolate; left: 40%">Степенная аппроксимация</h2>
+            <output id="pow-out" style="color: #e10bd7; left: 40%"></output>
+            <div id="svg-container-pow">
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
